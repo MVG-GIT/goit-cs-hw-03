@@ -1,13 +1,8 @@
-import psycopg2
+from connect import get_connection
 
 def create_tables():
-    conn = psycopg2.connect(
-        dbname="tasks_db",
-        user="postgres",
-        password="password",
-        host="localhost",
-        port="5432"
-    )
+    conn = get_connection()
+    
     cur = conn.cursor()
 
     cur.execute("""

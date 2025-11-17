@@ -1,17 +1,13 @@
-import psycopg2
+from connect import get_connection
+
 from faker import Faker
 import random
 
 fake = Faker()
 
 def seed_data():
-    conn = psycopg2.connect(
-        dbname="tasks_db",
-        user="postgres",
-        password="password",
-        host="localhost",
-        port="5432"
-    )
+    conn = get_connection()
+
     cur = conn.cursor()
 
     # Статуси
